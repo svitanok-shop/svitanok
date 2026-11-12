@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Світанок — інтернет-магазин</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M1 8a4 4 0 0 1 8 0z' fill='%23FFC247'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;600;700&family=Unbounded:wght@600&display=swap">
+<link id="themeStylesheet" rel="stylesheet" href="style.css"></head>
+<body>
+<header><a class="logo" href="#/"><i></i>Світанок</a><div class="search-wrap"><span class="search-icon" aria-hidden="true">⌕</span><input id="q" type="search" placeholder="Знайти корм, порошок, солодощі…" aria-label="Пошук товарів" autocomplete="off"><div id="searchSuggestions" class="search-suggestions" hidden></div></div><nav id="nav"></nav></header>
+<main id="app"></main>
+<nav id="mobileNav" class="mobile-bottom-nav" aria-label="Мобільна навігація"></nav>
+<footer class="shop-footer"><div class="footer-content"><div class="footer-info"><strong>Світанок</strong><span><img class="brand-logo" src="assets/nova-poshta.jpg" alt="" loading="lazy"> Нова пошта <img class="brand-logo" src="assets/ukrposhta-transparent.png" alt="" loading="lazy"> Укрпошта — доставка по Україні</span></div><div class="footer-contacts"><strong>Зв’язок із продавцем</strong><a href="tel:+380684900068" aria-label="Зателефонувати продавцю"><span class="contact-icon phone-icon" aria-hidden="true">☎</span> <span>+380 68 490 00 68</span></a><a href="https://t.me/Bcvsi" target="_blank" rel="noopener noreferrer" aria-label="Написати продавцю в Telegram"><span class="contact-icon telegram-icon" aria-hidden="true">➤</span> <span>Telegram: @Bcvsi</span></a></div></div><div class="footer-brands"><div class="footer-brand-grid"><div class="footer-brand"><img src="assets/nova-poshta.jpg" alt="Логотип Нової пошти" loading="lazy"><span>Нова пошта<small>Доставка замовлень</small></span></div><div class="footer-brand"><img src="assets/ukrposhta-transparent.png" alt="Логотип Укрпошти" loading="lazy"><span>Укрпошта<small>Доставка замовлень</small></span></div><div class="footer-brand"><img src="assets/google-transparent.png" alt="Логотип Google" loading="lazy"><span>Google<small>Вхід до акаунта</small></span></div></div></div><div class="footer-copy">© Світанок</div></footer>
+<div class="settings-dock" id="settingsDock"><button id="settingsToggle" type="button" aria-label="Відкрити налаштування" aria-expanded="false" aria-controls="settingsPanel">☰</button><div id="settingsPanel" class="settings-panel" hidden><div class="settings-heading"><strong>⚙ Налаштування</strong><button id="settingsClose" aria-label="Закрити налаштування" type="button">✕</button></div><label for="themeSelect">Тема сайту</label><select id="themeSelect"><option value="dark">🌙 Темна</option><option value="light">☀️ Світла</option><option value="system">💻 Як на пристрої</option></select><small>Вибір зберігається на цьому пристрої.</small></div></div><div id="toast" hidden></div>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+<script src="config.js"></script>
+<script src="app.js"></script>
+<script src="theme-settings.js"></script>
+</body></html>

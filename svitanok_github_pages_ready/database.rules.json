@@ -1,0 +1,55 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "products": {
+      ".read": true,
+      ".write": "auth != null && auth.uid === 'XCD8tXDhLuNw9sTviWowTD86Myg2'"
+    },
+    "users": {
+      "$uid": {
+        ".read": "auth != null && (auth.uid === $uid || auth.uid === 'XCD8tXDhLuNw9sTviWowTD86Myg2')",
+        ".write": "auth != null && (auth.uid === $uid || auth.uid === 'XCD8tXDhLuNw9sTviWowTD86Myg2')"
+      },
+      ".read": "auth != null && auth.uid === 'XCD8tXDhLuNw9sTviWowTD86Myg2'"
+    },
+    "orders": {
+      ".read": "auth != null && auth.uid === 'XCD8tXDhLuNw9sTviWowTD86Myg2'",
+      "$orderId": {
+        ".write": "auth != null && (((!data.exists() && newData.child('uid').val() === auth.uid) && root.child('blockedUsers').child(auth.uid).val() !== true) || auth.uid === 'XCD8tXDhLuNw9sTviWowTD86Myg2')"
+      }
+    },
+    "reviews": {
+      "$productId": {
+        ".read": true,
+        "$uid": {
+          ".write": "auth != null && ((auth.uid === $uid && root.child('blockedUsers').child(auth.uid).val() !== true) || auth.uid === 'XCD8tXDhLuNw9sTviWowTD86Myg2')",
+          ".validate": "!newData.exists() || (newData.hasChildren(['name','rating','text','ts']) && newData.child('rating').isNumber() && newData.child('rating').val() >= 1 && newData.child('rating').val() <= 5 && newData.child('text').isString() && newData.child('text').val().length <= 1500)"
+        }
+      }
+    },
+    "chats": {
+      ".read": "auth != null && auth.uid === 'XCD8tXDhLuNw9sTviWowTD86Myg2'",
+      "$uid": {
+        ".read": "auth != null && auth.uid === $uid",
+        ".write": "auth != null && ((auth.uid === $uid && root.child('blockedUsers').child(auth.uid).val() !== true) || auth.uid === 'XCD8tXDhLuNw9sTviWowTD86Myg2')",
+        "messages": {
+          "$messageId": {
+            ".validate": "newData.hasChildren(['sender','text','ts']) && newData.child('sender').val() === auth.uid && newData.child('text').isString() && newData.child('text').val().length <= 2000 && newData.child('ts').isNumber()"
+          }
+        }
+      }
+    },
+    "banners": {
+      ".read": true,
+      ".write": "auth != null && auth.uid === 'XCD8tXDhLuNw9sTviWowTD86Myg2'"
+    },
+    "blockedUsers": {
+      ".read": "auth != null && auth.uid === 'XCD8tXDhLuNw9sTviWowTD86Myg2'",
+      ".write": "auth != null && auth.uid === 'XCD8tXDhLuNw9sTviWowTD86Myg2'",
+      "$uid": {
+        ".read": "auth != null && auth.uid === $uid"
+      }
+    }
+  }
+}
